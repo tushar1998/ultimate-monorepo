@@ -1,0 +1,55 @@
+{
+  "name": "ultimate-monorepo",
+  "version": "0.0.0",
+  "private": "true",
+  "description": "Project with Git Submodules and monorepo",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build:apps": "lerna run --parallel --scope=@ultimate/admin build",
+    "build:packages": "",
+    "start:apps": "",
+    "start:packages": "",
+    "prepare": "husky install",
+    "lint": "eslint --fix '{apps,packages}/**/*.{ts,tsx}'",
+    "format": "prettier --write",
+    "stylelint": "stylelint --fix '**/*.{css,scss}' -i '!./apps/api/**/*'",
+    "bootstrap": "lerna bootstrap"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.0.3",
+    "@commitlint/config-conventional": "^17.0.3",
+    "@commitlint/config-lerna-scopes": "^17.0.2",
+    "@commitlint/types": "^17.0.0",
+    "@stylelint/postcss-css-in-js": "^0.38.0",
+    "@types/node": "^18.0.3",
+    "@typescript-eslint/eslint-plugin": "^5.30.5",
+    "@typescript-eslint/parser": "^5.30.5",
+    "eslint": "^8.19.0",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.6.0",
+    "eslint-plugin-react": "^7.30.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "husky": "^8.0.1",
+    "lerna": "^5.1.8",
+    "lint-staged": "^13.0.3",
+    "postcss": "^8.4.14",
+    "postcss-syntax": "^0.36.2",
+    "prettier": "^2.7.1",
+    "standard-version": "^9.5.0",
+    "stylelint": "^14.9.1",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-standard": "^26.0.0",
+    "typescript": "^4.7.4"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "pnpm format",
+      "pnpm stylelint",
+      "pnpm lint"
+    ]
+  }
+}

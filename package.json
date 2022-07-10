@@ -16,7 +16,8 @@
     "lint": "eslint --fix '{apps,packages}/**/*.{ts,tsx}'",
     "format": "prettier --write",
     "stylelint": "stylelint --fix '**/*.{css,scss}' -i '!./apps/api/**/*'",
-    "bootstrap": "lerna bootstrap"
+    "bootstrap": "lerna bootstrap",
+    "version": "lerna version"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.0.3",

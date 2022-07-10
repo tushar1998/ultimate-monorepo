@@ -1,0 +1,11 @@
+{
+  "extends": "./tsconfig.build.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@ultimate/*": ["packages/*/src"]
+    },
+    "noEmit": true,
+    "types": ["node"]
+  }
+}

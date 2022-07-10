@@ -8,10 +8,10 @@
     "packages/*"
   ],
   "scripts": {
-    "build:apps": "lerna run --parallel --scope=@ultimate/admin build",
-    "build:packages": "",
-    "start:apps": "",
-    "start:packages": "",
+    "build:apps": "lerna run build --scope=@ultimate/{api,admin,web}",
+    "build:packages": "lerna run build --scope=@ultimate/{core,util}",
+    "start:apps": "lerna run dev --scope=@ultimate/{api,admin,web}",
+    "start:packages": "lerna run dev --scope=@ultimate/{core,util}",
     "prepare": "husky install",
     "lint": "eslint --fix '{apps,packages}/**/*.{ts,tsx}'",
     "format": "prettier --write",

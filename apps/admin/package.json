@@ -26,7 +26,7 @@
     "@types/node": "^16.11.43",
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
-    "@ultimate/util": "^2.0.0",
+    "@ultimate/util": "^0.0.1-next.1",
     "postcss": "^8.4.14",
     "typescript": "^4.7.4"
   },

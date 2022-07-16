@@ -30,7 +30,11 @@ async function bootstrap() {
     .build();
 
   const swagger = SwaggerModule.createDocument(app, document);
-  SwaggerModule.setup('swagger', app, swagger);
+  SwaggerModule.setup('swagger', app, swagger, {
+    swaggerOptions: {
+      persistAuthorization: true,
+    },
+  });
 
   await app.listen(httpPort, () => {
     logger.debug(`API Server is listenting on port ${httpPort}`);

@@ -106,7 +106,7 @@ importers:
       '@nestjs/microservices': ^9.0.1
       '@nestjs/platform-express': ^9.0.1
       '@nestjs/schematics': ^9.0.1
-      '@nestjs/swagger': ^6.0.3
+      '@nestjs/swagger': ^6.0.4
       '@nestjs/testing': ^9.0.1
       '@types/express': ^4.17.13
       '@types/jest': 27.5.0
@@ -144,7 +144,7 @@ importers:
       '@nestjs/cli': 9.0.0
       '@nestjs/microservices': 9.0.1_c6jfnotcfxz5ne4c2mdj24h6y4
       '@nestjs/schematics': 9.0.1_typescript@4.7.4
-      '@nestjs/swagger': 6.0.3_hukrmcuhf2odavpe3mdd26srgi
+      '@nestjs/swagger': 6.0.4_hukrmcuhf2odavpe3mdd26srgi
       '@nestjs/testing': 9.0.1_qnweijp3ahupq7eyjxu7och5dq
       '@types/express': 4.17.13
       '@types/jest': 27.5.0
@@ -3391,8 +3391,8 @@ packages:
       - chokidar
     dev: true
 
-  /@nestjs/swagger/6.0.3_hukrmcuhf2odavpe3mdd26srgi:
-    resolution: {integrity: sha512-mpKfa1VOp7c8CPYdS403dO3XP8v6Hq6dI88yzzgmapKLEYPN0cFKXqTF2zULKv+BxqGl7EJM4h3P+cc0I9PStA==}
+  /@nestjs/swagger/6.0.4_hukrmcuhf2odavpe3mdd26srgi:
+    resolution: {integrity: sha512-YKf9RvCYHAgqkMvUG3xRr0zAcnuN8JsWPfvi7h0hzEXLRhNxByj2FT8Rzj+0fPAe6VZioWXBDpLzshO2PjE48Q==}
     peerDependencies:
       '@fastify/static': ^6.0.0
       '@nestjs/common': ^9.0.0

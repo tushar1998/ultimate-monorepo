@@ -1,17 +1,12 @@
 {
   "$schema": "https://json.schemastore.org/lerna.json",
-  "packages": [
-    "packages/*",
-    "apps/*"
-  ],
+  "packages": ["packages/*", "apps/*"],
   "useNx": false,
   "version": "0.0.1-next.1",
   "npmClient": "pnpm",
   "changelogPreset": {
     "name": "conventionalcommits",
-    "issuePrefixes": [
-      "#"
-    ],
+    "issuePrefixes": ["#"],
     "types": [
       {
         "type": "feat",
@@ -74,5 +69,16 @@
     "compareUrlFormat": "{{host}}/{{owner}}/{{repository}}/compare/{{previousTag}}...{{currentTag}}",
     "userUrlFormat": "{{host}}/{{user}}"
   },
-  "conventionalCommits": true
+  "conventionalCommits": true,
+  "command": {
+    "version": {
+      "allowBranch": ["main", "development"],
+      "conventionalCommits": true,
+      "message": "chore(release): publish %s"
+    },
+    "publish": {
+      "registry": "https://npm.pkg.github.com/",
+      "graphType": "all"
+    }
+  }
 }

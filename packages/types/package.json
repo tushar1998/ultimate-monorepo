@@ -1,0 +1,31 @@
+{
+  "name": "@tushar1998/types",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "version": "0.0.1-next.1",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tushar1998/ultimate-monorepo.git",
+    "directory": "packages/types"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsc -p ./tsconfig.build.json",
+    "dev": "tsc -w -p ./tsconfig.build.json",
+    "prepublishOnly": "pnpm build"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.182",
+    "@types/node": "^18.0.3",
+    "mongoose": "^6.5.0",
+    "ts-node": "^10.8.2",
+    "typescript": "^4.7.4"
+  },
+  "peerDependencies": {
+    "@nestjs/common": ">=9.0.3"
+  }
+}

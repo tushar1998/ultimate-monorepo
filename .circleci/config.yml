@@ -1,0 +1,14 @@
+version 2.1
+
+jobs:
+  build-packages:
+    docker:
+      - image: cimg/node:lts
+    steps:
+      # fetches the code from your git repo. https://circleci.com/docs/config-intro#part-2-using-code-from-your-repo
+      - checkout
+      - node/install-packages:
+          pkg-manager: pnpm
+      - run
+          name: Build Packages
+          command: pnpm build:packages

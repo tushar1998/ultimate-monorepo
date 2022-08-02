@@ -1,31 +1,36 @@
 {
   "name": "ultimate-monorepo",
-  "version": "0.0.0",
   "private": "true",
+  "version": "0.0.0",
   "description": "Project with Git Submodules and monorepo",
   "workspaces": [
     "apps/*",
     "packages/*"
   ],
+  "repository": "https://github.com/tushar1998/ultimate-monorepo.git",
   "scripts": {
-    "build:apps": "lerna run build --scope=@ultimate/{api,admin,web}",
-    "build:packages": "lerna run build --scope=@ultimate/{core,util}",
-    "start:apps": "lerna run dev --scope=@ultimate/{api,admin,web}",
-    "start:packages": "lerna run dev --scope=@ultimate/{core,util}",
+    "build:apps": "lerna run build --scope=@tushar1998/{api,admin,web}",
+    "build:packages": "lerna run build --scope=@tushar1998/{core,util,types}",
+    "start:apps": "lerna run dev --scope=@tushar1998/{api,admin,web}",
+    "start:packages": "lerna run dev --scope=@tushar1998/{core,util}",
     "prepare": "husky install",
     "lint": "eslint --fix '{apps,packages}/**/*.{ts,tsx}'",
     "format": "prettier --write",
     "stylelint": "stylelint --fix '**/*.{css,scss}' -i '!./apps/api/**/*'",
     "bootstrap": "lerna bootstrap",
-    "version": "lerna version"
+    "version": "lerna version",
+    "publish": "lerna publish"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.0.3",
     "@commitlint/config-conventional": "^17.0.3",
     "@commitlint/config-lerna-scopes": "^17.0.2",
+    "@commitlint/prompt-cli": "^17.0.3",
+    "@commitlint/parse": "^17.0.0",
     "@commitlint/types": "^17.0.0",
     "@stylelint/postcss-css-in-js": "^0.38.0",
     "@types/node": "^18.0.3",
+    "@types/eslint": "^8.4.5",
     "@typescript-eslint/eslint-plugin": "^5.30.5",
     "@typescript-eslint/parser": "^5.30.5",
     "eslint": "^8.19.0",

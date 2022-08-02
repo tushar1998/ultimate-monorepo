@@ -136,3 +136,6 @@ lib
 output
 .next
 build
+
+# Root Files
+.npmrc

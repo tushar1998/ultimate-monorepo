@@ -1,3 +1,2 @@
-import isEqual from 'lodash/isEqual';
-
-export { isEqual };
+export * from './mongo';
+export * from './nest';

@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "paths": {
-      "@ultimate/*": ["../../packages/src/*"]
+      "@tushar1998/*": ["../../packages/src/*"]
     }
   }
 }

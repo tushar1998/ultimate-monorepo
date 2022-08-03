@@ -5,18 +5,19 @@ executors:
       - image: cimg/node:16.16.0
 
 jobs:
-  build-packages:
+  build-workspace:
     executor: executor
     steps:
       - checkout
       - run: |
+          npm i -g pnpm
+      - run: |
+          pnpm install --no-frozen-lockfile
+      - run: |
           pnpm build:packages
-  build-apps:
-    executor: executor
-    steps: 
-      - checkout
       - run: |
           pnpm build:apps
+
   version-publish:
     executor: executor
     steps:
@@ -28,8 +29,9 @@ jobs:
           pnpm publish
 
 workflows:
-  build-packges-deploy:
+  build-packages-apps:
     jobs:
-      - build-packages
-      - build-apps
+      - build-workspace
+  version-publish-registry:
+    jobs:
       - version-publish

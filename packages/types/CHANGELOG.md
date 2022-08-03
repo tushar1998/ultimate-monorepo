@@ -6,3 +6,11 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ## [0.0.1-next.2](https://github.com/tushar1998/ultimate-monorepo/compare/v0.0.1-next.1...v0.0.1-next.2) (2022-08-03)
 
 **Note:** Version bump only for package @tushar1998/types
+
+
+
+
+
+## [0.0.1-next.2](https://github.com/tushar1998/ultimate-monorepo/compare/v0.0.1-next.1...v0.0.1-next.2) (2022-08-03)
+
+**Note:** Version bump only for package @tushar1998/types

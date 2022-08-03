@@ -18,8 +18,8 @@
     "format": "prettier --write",
     "stylelint": "stylelint --fix '**/*.{css,scss}' -i '!./apps/api/**/*'",
     "bootstrap": "lerna bootstrap",
-    "version": "lerna version",
-    "publish": "lerna publish"
+    "version": "lerna version --yes",
+    "publish": "lerna publish from-git --yes"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.0.3",

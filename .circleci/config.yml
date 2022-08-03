@@ -1,14 +1,35 @@
-version 2.1
+version: 2.1
+executors:
+  executor:
+    docker:
+      - image: cimg/node:16.16.0
 
 jobs:
   build-packages:
-    docker:
-      - image: cimg/node:lts
+    executor: executor
     steps:
-      # fetches the code from your git repo. https://circleci.com/docs/config-intro#part-2-using-code-from-your-repo
       - checkout
-      - node/install-packages:
-          pkg-manager: pnpm
-      - run
-          name: Build Packages
-          command: pnpm build:packages
+      - run: |
+          pnpm build:packages
+  build-apps:
+    executor: executor
+    steps: 
+      - checkout
+      - run: |
+          pnpm build:apps
+  version-publish:
+    executor: executor
+    steps:
+      - checkout
+      - run: |
+          pnpm version
+      - checkout
+      - run: |
+          pnpm publish
+
+workflows:
+  build-packges-deploy:
+    jobs:
+      - build-packages
+      - build-apps
+      - version-publish

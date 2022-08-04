@@ -78,7 +78,7 @@
   "command": {
     "version": {
       "allowBranch": [
-        "main",
+        "master",
         "development"
       ],
       "conventionalCommits": true,

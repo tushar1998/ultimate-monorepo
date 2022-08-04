@@ -1,8 +1,18 @@
 {
-  "name": "@ultimate/core",
+  "name": "@tushar1998/core",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
-  "version": "0.0.1-next.1",
+  "version": "0.0.1-next.2",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tushar1998/ultimate-monorepo.git",
+    "directory": "packages/core"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "access": "public"
+  },
   "scripts": {
     "build": "tsc -p ./tsconfig.build.json",
     "dev": "tsc -w -p ./tsconfig.build.json",

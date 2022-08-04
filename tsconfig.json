@@ -3,7 +3,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@ultimate/*": ["packages/*/src"]
+      "@tushar1998/*": ["packages/*/src"]
     },
     "noEmit": true,
     "types": ["node"]

@@ -1,0 +1,37 @@
+version: 2.1
+executors:
+  executor:
+    docker:
+      - image: cimg/node:16.16.0
+
+jobs:
+  build-workspace:
+    executor: executor
+    steps:
+      - checkout
+      - run: |
+          npm i -g pnpm
+      - run: |
+          pnpm install --no-frozen-lockfile
+      - run: |
+          pnpm build:packages
+      - run: |
+          pnpm build:apps
+
+  version-publish:
+    executor: executor
+    steps:
+      - checkout
+      - run: |
+          pnpm version
+      - checkout
+      - run: |
+          pnpm publish
+
+workflows:
+  build-packages-apps:
+    jobs:
+      - build-workspace
+  version-publish-registry:
+    jobs:
+      - version-publish

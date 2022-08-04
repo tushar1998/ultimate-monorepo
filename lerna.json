@@ -5,7 +5,7 @@
     "apps/*"
   ],
   "useNx": false,
-  "version": "0.0.1-next.1",
+  "version": "0.0.1-next.2",
   "npmClient": "pnpm",
   "changelogPreset": {
     "name": "conventionalcommits",
@@ -74,5 +74,19 @@
     "compareUrlFormat": "{{host}}/{{owner}}/{{repository}}/compare/{{previousTag}}...{{currentTag}}",
     "userUrlFormat": "{{host}}/{{user}}"
   },
-  "conventionalCommits": true
+  "conventionalCommits": true,
+  "command": {
+    "version": {
+      "allowBranch": [
+        "main",
+        "development"
+      ],
+      "conventionalCommits": true,
+      "message": "chore(release): publish %s"
+    },
+    "publish": {
+      "registry": "https://npm.pkg.github.com/",
+      "graphType": "all"
+    }
+  }
 }

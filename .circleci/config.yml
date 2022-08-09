@@ -2,7 +2,7 @@ version: 2.1
 executors:
   executor:
     docker:
-      - image: cimg/node:16.16.0
+      - image: tushar1998/ultimate-pnpm:lts
 
 jobs:
   build-workspace:

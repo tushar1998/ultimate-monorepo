@@ -21,7 +21,7 @@
     "bootstrap": "lerna bootstrap --hoist",
     "version:publish": "ts-node ./scripts/versionAndPublish.ts",
     "version:prod": "lerna version 0.0.1 --yes",
-    "version:dev": "lerna version 0.0.1-dev.1 --conventional-commits --create-release github --yes",
+    "version:dev": "lerna version 0.0.1-dev.2 --conventional-commits --create-release github --yes",
     "publish:packages": "lerna publish from-git --yes"
   },
   "devDependencies": {

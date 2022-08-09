@@ -64,7 +64,7 @@ function version() {
   } catch (error) {
     console.error(error);
   } finally {
-    process.exit(1);
+    process.exit(0);
   }
 }
 

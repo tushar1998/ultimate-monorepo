@@ -4,6 +4,7 @@
   "useNx": false,
   "version": "0.0.1-next.2",
   "npmClient": "pnpm",
+  "useWorkspaces": true,
   "changelogPreset": {
     "name": "conventionalcommits",
     "issuePrefixes": ["#"],

@@ -10,9 +10,7 @@ jobs:
     steps:
       - checkout
       - run: |
-          npm i -g pnpm
-      - run: |
-          pnpm install --no-frozen-lockfile
+          pnpm install
       - run: |
           pnpm build:packages
       - run: |
@@ -23,10 +21,7 @@ jobs:
     steps:
       - checkout
       - run: |
-          pnpm version
-      - checkout
-      - run: |
-          pnpm publish
+          pnpm version:publish
 
 workflows:
   build-packages-apps:

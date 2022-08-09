@@ -5,7 +5,7 @@ executors:
       - image: tushar1998/ultimate-pnpm:lts
 
 jobs:
-  build-workspace:
+  build-workspace-publish:
     executor: executor
     steps:
       - checkout
@@ -21,4 +21,4 @@ jobs:
 workflows:
   build-packages-apps:
     jobs:
-      - build-workspace
+      - build-workspace-publish

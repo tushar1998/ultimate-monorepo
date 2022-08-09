@@ -14,6 +14,12 @@ if (existsSync(dotenvFilePath)) {
   console.debug('Taking variables from global');
 }
 
+// Setup Git for tags and release
+if (process.env.GIT_USERNAME && process.env.GIT_EMAIL) {
+  execSync(`git config --global user.name ${process.env.GIT_USERNAME}`, { encoding: 'utf8' });
+  execSync(`git config --global user.email ${process.env.GIT_EMAIL}`, { encoding: 'utf8' });
+}
+
 function version() {
   try {
     const currentGitBranch: string = execSync('git branch --show-current', { encoding: 'utf8' });

@@ -1,11 +1,18 @@
 import { spawnSync, execSync } from 'node:child_process';
-
-/**
- * "version": "lerna version --yes",
- * "publish:packages": "lerna publish from-git --yes",
- */
+import { config } from 'dotenv';
+import { existsSync } from 'node:fs';
+import { join } from 'node:path';
 
 console.debug('Running version script');
+
+const dotenvFilePath: string = join(__dirname, '.env');
+
+if (existsSync(dotenvFilePath)) {
+  config({ path: dotenvFilePath });
+  console.debug('Found .env Loading Environment variables....');
+} else {
+  console.debug('Taking variables from global');
+}
 
 function version() {
   try {

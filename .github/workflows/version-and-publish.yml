@@ -1,0 +1,20 @@
+name: version-and-publish-packages
+
+# Events
+on:
+  pull_request:
+    # Only For Merged PRs
+    types:
+      - closed
+    # Sequence of patterns matched against refs/heads
+    branches:
+      - master
+      - development
+
+jobs:
+  if_merged:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+    - run: |
+        echo The PR was merged

@@ -12,9 +12,21 @@ on:
       - development
 
 jobs:
-  if_merged:
+  version-publish:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
+    container:
+      image: tushar1998/ultimate-pnpm:lts
+
+    env:
+      GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      GIT_USERNAME: githubactions
+      GIT_EMAIL: mistry.tushar98@gmail.com
+
     steps:
-    - run: |
-        pnpm install
+      - name: Checkout
+        run: actions/checkout@v2
+   
+      - name: Install Packages Node Modules
+        run: pnpm install --forzen-lockfile
+    

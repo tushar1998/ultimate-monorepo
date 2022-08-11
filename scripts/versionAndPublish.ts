@@ -16,8 +16,10 @@ if (existsSync(dotenvFilePath)) {
 
 // Setup Git for tags and release
 if (process.env.GIT_USERNAME && process.env.GIT_EMAIL) {
-  execSync(`git config --global user.name ${process.env.GIT_USERNAME}`, { encoding: 'utf8' });
-  execSync(`git config --global user.email ${process.env.GIT_EMAIL}`, { encoding: 'utf8' });
+  console.debug('Found Git User', process.env.GIT_USERNAME, process.env.GIT_EMAIL);
+
+  execSync(`git config user.name ${process.env.GIT_USERNAME}`, { encoding: 'utf8' });
+  execSync(`git config user.email ${process.env.GIT_EMAIL}`, { encoding: 'utf8' });
 }
 
 function version() {
@@ -55,14 +57,15 @@ function version() {
         break;
 
       default:
-        console.debug(currentGitBranch);
-        console.debug('No Branch Detected');
+        console.debug('No Branch Detected', currentGitBranch);
         break;
     }
 
     console.debug('Versioning And Publish Complete');
   } catch (error) {
     console.error(error);
+
+    process.exit(1);
   } finally {
     process.exit(0);
   }

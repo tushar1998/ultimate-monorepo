@@ -1,0 +1,50 @@
+name: version-and-publish-packages
+
+# Events
+on:
+  pull_request:
+    # Only For Merged PRs
+    types:
+      - closed
+    # Sequence of patterns matched against refs/heads
+    branches:
+      - master
+      - development
+
+jobs:
+  version-publish:
+    # Only run when a PR is merged
+    if: github.event.pull_request.merged == true
+
+    # What OS to run on
+    runs-on: ubuntu-latest
+
+    # Environment variables same as root .env
+    env:
+      GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      GIT_USERNAME: githubactions
+      GIT_EMAIL: mistry.tushar98@gmail.com
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.4.2
+      
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3.4.1
+        with: 
+          node-version: 16.16.0
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2.2.2
+        with:
+          version: 7.9.0
+
+      - name: Install Packages Node Modules
+        run: pnpm install --frozen-lockfile
+
+      - name: build:packages
+        run: pnpm build:packages
+
+      - name: version:publish
+        run: pnpm version:publish 
+    

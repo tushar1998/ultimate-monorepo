@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [0.0.1-dev.2](https://github.com/tushar1998/ultimate-monorepo/compare/v0.0.1-dev.1...v0.0.1-dev.2) (2022-08-09)
+## 0.0.1-beta.0 (2022-08-11)
 
 **Note:** Version bump only for package @tushar1998/types
 
@@ -11,22 +11,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [0.0.1-dev.1](https://github.com/tushar1998/ultimate-monorepo/compare/v0.0.1-next.2...v0.0.1-dev.1) (2022-08-09)
-
-**Note:** Version bump only for package @tushar1998/types
-
-
-
-
-
-## [0.0.1-next.2](https://github.com/tushar1998/ultimate-monorepo/compare/v0.0.1-next.1...v0.0.1-next.2) (2022-08-03)
-
-**Note:** Version bump only for package @tushar1998/types
-
-
-
-
-
-## [0.0.1-next.2](https://github.com/tushar1998/ultimate-monorepo/compare/v0.0.1-next.1...v0.0.1-next.2) (2022-08-03)
+## 0.0.1-dev.2 (2022-08-11)
 
 **Note:** Version bump only for package @tushar1998/types

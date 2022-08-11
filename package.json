@@ -20,8 +20,8 @@
     "stylelint": "stylelint --fix '**/*.{css,scss}' -i '!./apps/api/**/*'",
     "bootstrap": "lerna bootstrap --hoist",
     "version:publish": "ts-node ./scripts/versionAndPublish.ts",
-    "version:prod": "lerna version 0.0.1 --yes",
-    "version:dev": "lerna version 0.0.1-dev.2 --conventional-commits --create-release github --yes",
+    "version:prod": "lerna version --conventional-graduate --yes",
+    "version:dev": "lerna version --conventional-commits --conventional-prerelease --preid beta --create-release github --yes",
     "publish:packages": "lerna publish from-git --yes"
   },
   "devDependencies": {

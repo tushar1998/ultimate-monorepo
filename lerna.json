@@ -5,8 +5,9 @@
     "apps/*"
   ],
   "useNx": false,
-  "version": "0.0.1-next.2",
+  "version": "0.0.1-dev.2",
   "npmClient": "pnpm",
+  "useWorkspaces": true,
   "changelogPreset": {
     "name": "conventionalcommits",
     "issuePrefixes": [
@@ -81,7 +82,6 @@
         "master",
         "development"
       ],
-      "conventionalCommits": true,
       "message": "chore(release): publish %s"
     },
     "publish": {

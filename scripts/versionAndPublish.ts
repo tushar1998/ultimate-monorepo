@@ -3,15 +3,52 @@ import { config } from 'dotenv';
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 
-console.debug('Running version script');
+console.debug('Running versionAndPublish script');
 
-const dotenvFilePath: string = join(__dirname, '.env');
+// Setup Environment
+const dotenvFilePath: string = join(__dirname, '..', '.env');
 
 if (existsSync(dotenvFilePath)) {
   config({ path: dotenvFilePath });
   console.debug('Found .env Loading Environment variables....');
 } else {
   console.debug('Taking variables from global');
+}
+
+const currentBranch: string = execSync('git branch --show-current', { encoding: 'utf8' }).trim();
+
+// Release Branch Checkout
+function checkoutRelease(currentGitBranch: string) {
+  try {
+    console.debug('Checking out to release branch');
+
+    execSync('git fetch origin', { stdio: 'inherit', encoding: 'utf-8' });
+
+    // Checkout to release branch
+    execSync('git checkout release', { encoding: 'utf8' });
+
+    // Merging Branch into release
+    execSync(`git merge ${currentGitBranch}`, { encoding: 'utf8' });
+  } catch (error) {
+    console.error(error);
+
+    process.exit(1);
+  }
+}
+
+function versionPackages(env: 'dev' | 'prod' | 'stag') {
+  console.debug('Versioning...');
+
+  // Version Bump
+  spawnSync('pnpm', [`version:${env}`], { stdio: 'inherit', encoding: 'utf-8' });
+  console.debug('Versioning Complete');
+}
+
+function publishPackages() {
+  console.debug('Publishing Packages....');
+
+  spawnSync('pnpm', ['publish:packages'], { stdio: 'inherit', encoding: 'utf-8' });
+  console.debug('Publish Complete');
 }
 
 // Setup Git for tags and release
@@ -24,42 +61,29 @@ if (process.env.GIT_USERNAME && process.env.GIT_EMAIL) {
 
 function version() {
   try {
-    const currentGitBranch: string = execSync('git branch --show-current', { encoding: 'utf8' });
+    console.debug(`Branch Detected: ${currentBranch}`);
 
-    const parsedGitBranch: string = currentGitBranch.trim();
+    // Checkout to release branch
+    checkoutRelease(currentBranch);
 
-    console.debug(`Branch Detected: ${parsedGitBranch}`);
-
-    switch (parsedGitBranch) {
+    switch (currentBranch) {
       case 'master':
-        // Version Bump
-        spawnSync('pnpm', ['version:prod'], { stdio: 'inherit', encoding: 'utf-8' });
-        console.debug('Versioning Complete');
-
-        // Start Publishing
-        spawnSync('pnpm', ['publish:packages'], { stdio: 'inherit', encoding: 'utf-8' });
-        console.debug('Publish Complete');
+        // Version Packages Production
+        versionPackages('prod');
 
         break;
       case 'development':
-        console.debug('Versioning...');
-
-        // Version Bump
-        spawnSync('pnpm', ['version:dev'], { stdio: 'inherit', encoding: 'utf-8' });
-        console.debug('Versioning Complete');
-
-        console.log('Publishing...');
-
-        // Start Publishing
-        spawnSync('pnpm', ['publish:packages'], { stdio: 'inherit', encoding: 'utf-8' });
-        console.debug('Publish Complete');
+        // Version Packages Development
+        versionPackages('dev');
 
         break;
-
       default:
-        console.debug('No Branch Detected', currentGitBranch);
+        console.debug('No Branch Detected', currentBranch);
         break;
     }
+
+    // Publish
+    publishPackages();
 
     console.debug('Versioning And Publish Complete');
   } catch (error) {

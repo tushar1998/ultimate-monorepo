@@ -28,7 +28,7 @@ function checkoutRelease(branch: string) {
     execSync('git checkout release', { encoding: 'utf8' });
 
     // Merging Branch into release
-    execSync(`git pull origin ${branch}`, { encoding: 'utf8' });
+    execSync(`git pull origin ${branch} --ff-only`, { encoding: 'utf8' });
   } catch (error) {
     console.error(error);
 

@@ -18,7 +18,7 @@ if (existsSync(dotenvFilePath)) {
 const currentBranch: string = execSync('git branch --show-current', { encoding: 'utf8' }).trim();
 
 // Release Branch Checkout
-function checkoutRelease(currentGitBranch: string) {
+function checkoutRelease(branch: string) {
   try {
     console.debug('Checking out to release branch');
 
@@ -28,7 +28,7 @@ function checkoutRelease(currentGitBranch: string) {
     execSync('git checkout release', { encoding: 'utf8' });
 
     // Merging Branch into release
-    execSync(`git merge ${currentGitBranch}`, { encoding: 'utf8' });
+    execSync(`git pull origin ${branch} --ff-only`, { encoding: 'utf8' });
   } catch (error) {
     console.error(error);
 

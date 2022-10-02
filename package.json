@@ -12,7 +12,7 @@
     "build:apps": "lerna run build --scope=@tushar1998/{api,admin,web}",
     "build:packages": "lerna run build --scope=@tushar1998/{core,util,types}",
     "start:apps": "lerna run dev --scope=@tushar1998/{api,admin,web}",
-    "start:packages": "lerna run dev --scope=@tushar1998/{core,util}",
+    "start:packages": "lerna run dev --stream --parallel --scope=@tushar1998/{core,util,types}",
     "prepare": "husky install",
     "postinstall": "pnpm bootstrap",
     "lint": "eslint --fix '{apps,packages}/**/*.{ts,tsx}'",

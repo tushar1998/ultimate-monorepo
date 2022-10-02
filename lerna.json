@@ -73,7 +73,7 @@
   "conventionalCommits": true,
   "command": {
     "version": {
-      "allowBranch": ["release"],
+      "allowBranch": ["development", "staging", "master"],
       "message": "chore(release): publish %s"
     },
     "publish": {
